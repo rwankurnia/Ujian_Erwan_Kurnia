@@ -1,0 +1,39 @@
+Query Test
+
+1. 
+select * from city
+where CountryCode = 'IDN'
+limit 10;
+
+2.
+select ID, Name, District, Population from city
+ORDER BY Population DESC
+limit 10;
+
+3.
+select c.code, c.name, cl.Language, IsOfficial, cl.Percentage from countrylanguage cl
+join country c on c.code = cl.CountryCode
+where isOfficial = 'T' and Language = 'English'
+order by percentage DESC
+limit 10;
+
+4.
+select Name, Continent, LifeExpectancy, GNP from country
+where Continent = 'Asia' and LifeExpectancy > (select avg(LifeExpectancy)
+from country where Continent = 'Europe')
+order by LifeExpectancy desc
+limit 10;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
